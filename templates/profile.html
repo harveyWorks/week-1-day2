@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<div class="container mt-3">
+    <div class="card p-4 shadow">
+        <div class="row">
+            <div class="col-md-5 text-end">
+                {% if user.image_filename %}
+                    <img src="{{ url_for('static', filename='uploads/' ~ user.image_filename) }}"
+                         alt="Profile Image" class="img-thumbnail mb-3" width="150">
+                {% endif %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <h3><strong><p>{{ user.name }}</p></strong></h3>
+                <h5><strong><p>{{ age ~ ' years old' if age is not none else 'N/A' }}</p></strong></h5>
+                <p><h5><strong>{{ user.address }}</p></strong></h5>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

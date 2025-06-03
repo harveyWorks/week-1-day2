@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<div class="d-flex align-items-start justify-content-start" style="height: 80vh;">
+    <div class="card p-4 shadow" style="min-width: 300px; max-width: 500px; width: 100%;">
+        <h4 class="text-center mb-3">Register</h4>
+        <form method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <input type="file" name="image" class="form-control">
+            </div>
+            <div class="mb-3">
+                <input type="text" name="name" class="form-control" placeholder="Full Name" required>
+            </div>
+            <div class="mb-3">
+                <input type="date" name="birthdate" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <input type="text" name="address" class="form-control" placeholder="Address" required>
+            </div>
+            <div class="mb-3">
+                <input type="text" name="username" class="form-control" placeholder="Username" required>
+            </div>
+            <div class="mb-3">
+                <input type="password" name="password" class="form-control" placeholder="Password" required>
+            </div>
+            {% if message %}
+            <div class="alert alert-danger">{{ message }}</div>
+            {% endif %}
+            <button type="submit" class="btn btn-primary w-100">Register</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
